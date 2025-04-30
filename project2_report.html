@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Project 2 Report</title>
+    <style>
+      :root {
+        --color-neutral-95: hsl(220 10% 95%);
+        --color-neutral-90: hsl(220 10% 90%);
+        --color-neutral-80: hsl(220 10% 80%);
+        --color-neutral-70: hsl(220 10% 70%);
+        --color-neutral-60: hsl(220 10% 60%);
+        --color-neutral-50: hsl(220 10% 50%);
+        --color-neutral-40: hsl(220 10% 40%);
+        --color-neutral-30: hsl(220 10% 30%);
+        --color-neutral-20: hsl(220 10% 20%);
+        --color-neutral-10: hsl(220 10% 10%);
+      }
+
+      html {
+        font: 100%/1.5 system-ui;
+        counter-reset: figure;
+        background: var(--color-neutral-95);
+        max-width: min(75vw, 80em);
+        margin: 0 auto;
+      }
+
+      h1,
+      h2,
+      h3 {
+        line-height: 1.1;
+        font-weight: 600;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 1px solid var(--color-neutral-80);
+        padding-bottom: 0.2em;
+      }
+
+      h1 {
+        margin-block: 1em 0.5rem;
+        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-weight: 800;
+      }
+
+      h2 {
+        font-size: 180%;
+        color: var(--color-neutral-30);
+      }
+
+      h3 {
+        font-size: 130%;
+      }
+
+      ul {
+        padding-left: 2em;
+      }
+
+      header {
+        padding-block: 1em;
+        text-align: center;
+      }
+
+      main {
+        background: white;
+        color: var(--color-neutral-20);
+        border-radius: 1rem;
+        padding: 0.1rem 2rem;
+      }
+
+      figure {
+        margin: 1em 0;
+        padding: 0.5rem;
+        margin-inline: -0.5em;
+        border: 1px solid var(--color-neutral-80);
+        background: white;
+        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+      }
+
+      figcaption {
+        background: var(--color-neutral-95);
+        padding: 0.5rem;
+        font-size: 0.9em;
+        counter-increment: figure;
+      }
+
+      figcaption::before {
+        content: 'Figure ' counter(figure) ': ';
+        font-weight: bold;
+        color: var(--color-neutral-40);
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <small>Assignment 4</small>
+        Persuasive or Deceptive Visualization?
+      </h1>
+      <p><strong>Christian Kumagai</strong>, <em>ckumagai@ucsd.edu</em></p>
+    </header>
+
+    <main>
+      <h2>Proposition: California provides the strongest abortion access and infrastructure.</h2>
+
+      <section>
+        <h3>FOR the Proposition</h3>
+        <figure>
+          <img src="plot1.png" alt="Raw Resource Score Map" />
+          <figcaption>
+            This map shows a combined score of normalized clinic counts and public funding without adjusting for population or geography. California visually dominates due to its size and wealth.
+          </figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+        <ul>
+          <li><strong>-1.5 (deceptive):</strong> I intentionally avoided adjusting for population or geography to let California’s size speak for itself. While the values are technically normalized, the absence of further contextual transformation privileges states with more raw infrastructure and reinforces a hierarchy based on size and wealth. Ethically, this design decision is misleading because it suggests equitable strength when it’s really just scale dominance.</li>
+          <li><strong>+2 (earnest):</strong> The color scale is perceptually uniform, which ensures that viewers perceive proportional differences as intended. I didn’t want the deception to come from how the data was visualized, only how it was framed. This decision upholds clarity even as other aspects of the graphic quietly mislead.</li>
+          <li><strong>+0.5 (mildly persuasive):</strong> I framed the title to sound authoritative without being technically false. The phrase "California is Unmatched" makes a bold claim that is hard to challenge if the viewer doesn’t consider fairness or access equity. The ethical gray area here lies in omission, as it omits how other states might provide stronger access in context.</li>
+          <li><strong>-1 (deceptive):</strong> I chose not to disclose that the map excludes per-capita or density adjustments. This strategic omission makes the visual appear more comprehensive than it is. It’s a form of rhetorical sleight of hand that is effective but ethically questionable if the viewer doesn’t investigate further.</li>
+          <li><strong>+1 (neutral):</strong> The design was kept clean and minimal. I deliberately didn’t clutter the visual or overwhelm with unnecessary data. This choice helps reduce cognitive load and makes the story more convincing, but it also means that nuanced interpretations are lost. That can be both a strength and a weakness depending on your intent.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>AGAINST the Proposition</h3>
+        <figure>
+          <img src="plot2.png" alt="Density-Adjusted Resource Score Map" />
+          <figcaption>
+            This map adjusts the same metric using both population and land area, revealing more equitable access in smaller, denser states. California fades, and the East Coast stands out.
+          </figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+        <ul>
+          <li><strong>+2 (earnest):</strong> I divided the resource score by both population and land area to reflect accessibility in spatial and demographic terms. This transformation, while harder to explain, strives to reflect real-world access fairness. However, I later realized that multiplying population and land area may overcorrect and unfairly penalize large states, so while ethically grounded, it risks misinterpretation without clear guidance.</li>
+          <li><strong>+1.5 (earnest):</strong> I used percentile binning to simplify interpretation and minimize the visual impact of extreme values. This decision reflects my desire to avoid misleading spikes or plateaus that might skew the narrative, especially important when you’re visualizing adjusted metrics where magnitude doesn’t translate directly to real-world difference.</li>
+          <li><strong>+2 (earnest):</strong> I made the legend and title very explicit about the transformation. I didn’t want viewers to assume this was raw data. I wanted to challenge their assumptions. This level of transparency, while potentially confusing, reflects my ethical commitment to accuracy and disclosure.</li>
+          <li><strong>-1 (persuasive):</strong> I used emotionally charged language in the title: “California is Falling Behind.” This was deliberate. It primes the viewer to question the state’s perceived leadership. While effective rhetorically, it approaches emotional manipulation. That trade-off felt justified here given the nature of the assignment.</li>
+          <li><strong>+1.5 (earnest):</strong> I reused all the same encodings, map boundaries, and layout elements from the first visualization to isolate the impact of the data transformation. This consistency serves an ethical purpose. It allows viewers to focus solely on how perspective changes when the framing changes, not on design distractions.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Final Reflection</h2>
+        <p>
+          This project was far more difficult and revealing than I expected. I spent over ten hours transforming and visualizing the dataset, but much of that time was spent discarding graphs that technically worked but said nothing meaningful. Many of the visuals lacked clarity or persuasive power, and I started questioning whether I was uncovering insight or just rearranging noise. Eventually, I realized I was treating data as neutral when, in practice, it rarely is. That insight pushed me to frame a more emotionally charged proposition, something that would provoke engagement: a California versus Everyone Else framing. The result was not just clearer. It was more rhetorically persuasive and made me reflect more deeply on how data design shapes narrative.
+        </p>
+        <p>
+          What shocked me most was how malleable the truth felt. With the same dataset, I could convincingly tell two opposing stories. In one, California appeared dominant, a leader in access. In the other, it seemed to fall behind smaller East Coast states. Neither version involved data manipulation or factual error, but both were shaped by my intent. I came into this project with a clear agenda for each side, and I succeeded in framing each story persuasively. But that success made me uneasy. It exposed how easily we can use visual tools to validate preexisting beliefs instead of testing them. That realization helped shift how I now understand ethical visualization. It is not about avoiding persuasion, but about being honest about where your frame is coming from and what it leaves out.
+        </p>
+        <p>
+          Ethical analysis and visualization, to me, now means designing with humility and curiosity. It means approaching the data not to win an argument, but to learn something you didn’t already believe. It means being transparent about the transformations you apply and acknowledging what your visualizations emphasize and omit. Persuasive choices become misleading when they mask the underlying assumptions or when they claim neutrality where none exists. As George Box once said, "All models are wrong, but some are useful." I think the same is true for visualizations. They are simplified, partial stories, but they can be useful if we are honest about what they represent. From now on, I want to use visualization to surface complexity, not to hide it. That is where truth lives. That is what I want my work to reflect.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
